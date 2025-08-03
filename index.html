@@ -1,0 +1,219 @@
+<html lang="es" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrenamiento K9 - Protocolo Ultrasónico</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "bootstrap": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="Logo K9" width="30" height="30" class="d-inline-block align-text-top me-2">
+        Protocolo K9 Ultrasónico
+      </a>
+    </div>
+  </nav>
+
+  <main class="container mt-4">
+    <div class="row">
+      <!-- Columna de Entrenamiento -->
+      <div class="col-lg-7">
+        <div class="card bg-dark-subtle text-light shadow">
+          <div class="card-header h5">
+            <i class="bi bi-journal-text me-2"></i>Prácticas de Entrenamiento K9
+          </div>
+          <div class="card-body">
+            <p class="card-text">Basado en protocolos de entrenamiento avanzados, combinando obediencia y respuesta a estímulos de silbato ultrasónico.</p>
+            <div class="accordion" id="trainingAccordion">
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" data-frequency="35">
+                    <strong>Eco de Beijing:</strong> Obediencia a Distancia
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#trainingAccordion">
+                  <div class="accordion-body">
+                    Control a larga distancia mediante comandos verbales y silbato. Frecuencia de <strong>35 kHz</strong> para "alto" y "regreso".
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" data-frequency="42.5">
+                    <strong>Sombra Silenciosa:</strong> Rastreo y Detección
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#trainingAccordion">
+                  <div class="accordion-body">
+                    Técnicas de rastreo sigiloso. El perro responde a cambios sutiles en el rango <strong>40-45 kHz</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                    <strong>Furia Controlada:</strong> Protección y Apresamiento
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#trainingAccordion">
+                  <div class="accordion-body">
+                    Protocolo de intervención estricto. Se usan diferentes frecuencias para comandos específicos.
+                    <div class="mt-2">
+                      <button class="btn btn-sm btn-outline-danger protocol-btn" data-frequency="50">Ataque (50 kHz)</button>
+                      <button class="btn btn-sm btn-outline-info protocol-btn" data-frequency="25">Suelta (25 kHz)</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" data-frequency="23">
+                    <strong>Guardián de la Muralla:</strong> Defensa Perimetral
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#trainingAccordion">
+                  <div class="accordion-body">
+                    El K9 patrulla un perímetro y alerta de forma silenciosa. Se usa una frecuencia de <strong>23 kHz</strong> como señal de "todo despejado".
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-dark-subtle text-light shadow mt-4">
+          <div class="card-header h5">
+            <i class="bi bi-patch-check-fill me-2"></i>Certificación de Operador
+          </div>
+          <div class="card-body">
+            <div id="certification-intro">
+              <p>Demuestre su aptitud en el manejo de los protocolos ultrasónicos para obtener su certificado.</p>
+              <div class="mb-3">
+                <label for="operator-name" class="form-label">Nombre del Operador:</label>
+                <input type="text" class="form-control" id="operator-name" placeholder="Ingrese su nombre completo">
+              </div>
+              <button class="btn btn-success w-100" id="start-exam-btn"><i class="bi bi-play-circle me-2"></i>Iniciar
+                Examen</button>
+            </div>
+            <div id="exam-progress-view" class="d-none">
+              <h5 id="exam-instruction" class="mb-1"></h5>
+              <p>Ajuste la frecuencia y active el silbato para emitir el comando correcto.</p>
+              <div class="progress mt-3" style="height: 20px;">
+                <div class="progress-bar" id="exam-progress-bar" role="progressbar" style="width: 0%;"
+                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0/5</div>
+              </div>
+              <div class="mt-2 text-center" id="exam-feedback"></div>
+              <button class="btn btn-danger w-100 mt-3 d-none" id="restart-exam-btn">Intentar de Nuevo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna del Silbato -->
+      <div class="col-lg-5 mt-4 mt-lg-0">
+        <div class="card text-light shadow text-center" id="whistle-card">
+          <div class="card-header h5">
+            <i class="bi bi-reception-4 me-2"></i>Simulador de Silbato Ultrasónico
+          </div>
+          <div class="card-body">
+            <img src="dog-silhouette.png" id="dog-silhouette" class="img-fluid mb-3" alt="Silueta de perro K9">
+            
+            <!-- START: Response Meter -->
+            <div class="mb-3">
+              <label for="response-meter" class="form-label fw-bold">Respuesta Canina Simulada</label>
+              <div class="progress" id="response-meter" style="height: 25px;">
+                <div id="response-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <small id="response-text" class="form-text mt-1 d-block"></small>
+            </div>
+            <!-- END: Response Meter -->
+
+            <h3 class="display-4 fw-bold" id="frequency-display">35.0 kHz</h3>
+            <p class="text-muted">Rango: 23-54 kHz</p>
+            <input type="range" class="form-range" id="frequency-slider" min="23" max="54" value="35" step="0.1">
+             <div class="btn-group w-100 mt-2" role="group" aria-label="Signal type">
+              <input type="radio" class="btn-check" name="signal-type" id="signal-continuous" autocomplete="off" value="continuous" checked>
+              <label class="btn btn-outline-primary" for="signal-continuous">Continuo</label>
+
+              <input type="radio" class="btn-check" name="signal-type" id="signal-pulse" autocomplete="off" value="pulse">
+              <label class="btn btn-outline-primary" for="signal-pulse">Pulsos</label>
+            </div>
+            <button id="play-whistle" class="btn btn-primary btn-lg w-100 mt-3">
+              <i class="bi bi-volume-up-fill me-2"></i>Activar Silbato
+            </button>
+            <div id="whistle-notice" class="form-text mt-3">
+              Activando la frecuencia ultrasónica real. Este sonido está fuera del rango de audición humana y no será reproducible por la mayoría de los altavoces. Se emitirá un siseo de referencia.
+            </div>
+            <div class="visualizer-container mt-3">
+              <canvas id="visualizer-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center text-muted py-4 mt-4">
+    <p>&copy; 2024 K9 Advanced Training Systems</p>
+  </footer>
+
+  <!-- Certificate Modal -->
+  <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content certificate-content">
+        <div class="modal-body text-center p-4 p-md-5">
+          <div class="certificate-border">
+            <h1 class="certificate-title mb-3">Certificado de Aptitud</h1>
+            <p class="lead">Se certifica que</p>
+            <h2 class="display-6 text-primary fw-bold" id="certificate-name">[Nombre del Operador]</h2>
+            <p class="lead mt-3">ha completado satisfactoriamente el entrenamiento y la evaluación del <br><strong>Protocolo
+                K9 Ultrasónico</strong>.</p>
+            <p>Con esta certificación, el operador ha demostrado competencia en el control de K9 mediante la modulación
+              de frecuencia para los comandos de obediencia, rastreo y protección.</p>
+            <div class="my-4">
+              <img src="certificate-seal.png" alt="Sello de Certificación" class="certificate-seal">
+            </div>
+            <div class="d-flex justify-content-between align-items-end mt-4 certificate-footer">
+              <div>
+                <p class="mb-0 text-start"><strong>Fecha de Emisión:</strong></p>
+                <p class="mb-0 text-start" id="certificate-date">[Fecha]</p>
+              </div>
+              <div class="text-center">
+                <p class="mb-0 signature">J. Rodriguez</p>
+                <p class="mb-0 fw-bold border-top">Jefe de Unidad K9</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="print-certificate-btn"><i
+              class="bi bi-printer-fill me-2"></i>Imprimir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+
+</html>
